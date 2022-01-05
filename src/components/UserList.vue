@@ -6,8 +6,8 @@
       :position-user="index + 1"
       :name="user.name"
       :user-name="user.username"
-      @handleSeeDetails="handleSeeDetailsUsers"
-      @handleDelete="handleDeleteUser"
+      @handleSeeDetails="handleSeeDetailsUsers(user.id)"
+      @handleDelete="handleDeleteUser(index)"
     />
   </ol>
 </template>
@@ -22,11 +22,17 @@ export default {
     UserItem,
   },
   methods: {
-    handleSeeDetailsUsers () {
-      console.log('click')
+    handleSeeDetailsUsers (userId) {
+      this.$router.push({
+        name: 'UserDetails',
+        params: {
+          id: userId
+        },
+      });
     },
-    handleDeleteUser () {
-      console.log('click')
+    handleDeleteUser (userPosition) {
+      this.usersList.splice(userPosition, 1);
+      this.$store.commit('SET_USERS_LIST', this.usersList)
     },
   },
   computed: {
