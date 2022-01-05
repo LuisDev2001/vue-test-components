@@ -1,6 +1,9 @@
 <template>
   <li class="user-item">
-    <p>{{ name }} ({{ userName }}) </p>
+    <div class="user-information">
+      <span>{{ positionUser }}.-</span>
+      <span>{{ name }} ({{ userName }}) </span>
+    </div>
 
     <div class="user-actions">
       <button @click="emitSeeDetailsUser">Detalles</button>
@@ -20,6 +23,10 @@ export default {
     userName: {
       type: String,
       default: '',
+    },
+    positionUser: {
+      type: Number,
+      default: 0,
     },
   },
   methods: {

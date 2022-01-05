@@ -37,4 +37,10 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+button {
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  margin: 0;
+}
 </style>
